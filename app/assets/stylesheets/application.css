@@ -93,6 +93,13 @@ form .field, form .actions {
 
 
 }
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
 
 
 /* ###### White / Pink #########*/
