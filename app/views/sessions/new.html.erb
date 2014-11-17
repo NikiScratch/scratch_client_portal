@@ -1,0 +1,51 @@
+<div class="white-pink">
+<% if current_user %>
+
+  <h1>User Profile</h1>
+  <p>
+    <strong>Name:</strong>
+    <%= current_user.name %>
+  </p>
+  <p>
+    <strong>Provider:</strong>
+    <%= current_user.provider %>
+  </p>
+  <p>
+    <strong>OmniAuth UID:</strong>
+    <%= current_user.uid %>
+  </p>
+ 
+<% else %>
+
+  <h1>Sign in Here</h1>
+
+  <div class="auth_providers">
+
+    <a href="/auth/twitter" class="auth_provider">
+    <%= image_tag "twitter-login.png", alt: "Twitter" %>
+    </a>
+
+    <a href="/auth/facebook" class="auth_provider">
+    <%= image_tag "facebook_login.png", alt: "Facebook" %>
+    </a>
+
+  </div>
+
+<strong>New User?</strong>
+  <%= link_to "Sign up here!", new_identity_path %> or login below.
+   
+  <%= form_tag "/auth/identity/callback" do %>
+   
+  <%= label_tag :auth_key, "Email" %>
+  <%= text_field_tag :auth_key %>
+  <p>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+   
+<div class="actions"><%= submit_tag "Login" %></div>
+
+<% end %>
+
+</div>
+  
+<% end %>

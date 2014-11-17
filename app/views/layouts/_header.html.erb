@@ -1,0 +1,22 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+
+	<div class="navbar-inner">
+		<div class="container">
+
+			<% if current_user %>
+				<p><%= link_to "Log out", logout_path %></p>
+                    <% if current_page?(controller: 'events_user', action: 'index') %>
+
+                        <%= link_to "Venues", venues_path%>
+                    <%elsif current_user.type=="Talent"%>
+                        <p><%= link_to "Past Events", events_path%>
+                    <%else%>
+                        <p><%= link_to "Past Events", events_path%>
+                    <% end %>
+			<% else %>
+                <%= link_to "Sign in", root_path %>
+            <% end %>
+            
+		</div>
+    </div>
+</header>

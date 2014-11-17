@@ -1,0 +1,3 @@
+class EventsTalent < EventsUser
+    
+end

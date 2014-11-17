@@ -1,0 +1,3 @@
+class EventsClient < EventsUser
+    
+end

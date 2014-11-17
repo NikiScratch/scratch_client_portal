@@ -1,0 +1,32 @@
+<div class="white-pink">
+<h1>Events held in <%=@venue.name%> </h1>
+
+<table>
+    
+    <tr>
+
+        <% if @events.size==0 %>
+
+            <em>No Events found</em>
+
+        <% else %>
+            
+            <td><b><%= "Name" %></b></td>
+            <td><b><%= "Date" %></b></td>
+            <td><b><%= "Time" %></b></td>
+            <td><b><%= "DJ Name" %></b></td>
+    </tr>
+            <!-- Getting objects from upcoming events -->
+            <% @events_in_eventtalent.each do |e| %> 
+            <tr> 
+                <td><%= e.event.name%> </td> 
+                <td><%= e.event.date.strftime("%b %d, %Y") %></td><td><%= e.event.time.strftime("%I:%Mp") %></td> 
+            <!--  #Not showing the DJ's name.  Displays User instead. -->
+                <td><%= e.event.talents.name %></td> 
+            </tr> 
+        <% end %>
+             
+    <% end %>
+
+</table>
+</div>
