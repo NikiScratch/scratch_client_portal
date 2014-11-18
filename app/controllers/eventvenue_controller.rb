@@ -13,7 +13,8 @@ class EventvenueController < ApplicationController
     #get user ids from those events
     @user_id= EventsTalent.where(event_id: @events).pluck(:user_id)
     #Find those users in event talent
-    User.find(@user_id)
+    #User.find(@user_id)
+    
   end
  
 end
