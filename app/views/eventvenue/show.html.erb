@@ -1,5 +1,5 @@
 <div class="white-pink">
-<h1>Events held in <%=@venue.name%> </h1>
+<h1>Events held in <%=@venue.name%>(eventvenue show) <%=current_user.type%> </h1>
 
 <table>
     
@@ -24,11 +24,7 @@
             <tr> 
                 <td><%= e.event.name%> </td> 
                 <td><%= e.event.date.strftime("%b %d, %Y") %></td><td><%= e.event.time.strftime("%I:%Mp") %></td> 
-                <td><%= e.user.name%></td>
-               
-
-            <!--  #Getting name from talent collection -->
-               
+               <td><%= e.user.name%></td>
 
           </tr> 
         <% end %>

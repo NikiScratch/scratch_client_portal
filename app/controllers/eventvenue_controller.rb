@@ -16,5 +16,11 @@ class EventvenueController < ApplicationController
     #User.find(@user_id)
     
   end
+
+  def past_events
+    @user=current_user
+    @pastevents = @user.events.where("date < ?", Date.today)
+
+  end
  
 end

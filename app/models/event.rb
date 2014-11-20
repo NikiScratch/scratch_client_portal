@@ -9,6 +9,10 @@ class Event < ActiveRecord::Base
     has_many :events_clients, class_name: "EventsClient"
     has_many :clients, through: :events_clients, source: :user
 
+
+    #scope :past, ->{where ("date < ?", Date.today)}
+    #scope :upcoming, ->{where ("date > ?", Date.yesterday)}
+
     def djnames
         names = ""
         talents.each do |talent|

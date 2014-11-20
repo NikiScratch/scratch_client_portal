@@ -1,5 +1,5 @@
 <div class="white-pink">
-<h1>History of Events for <%=current_user.name%> </h1>
+<h1>Upcoming Events for <%=current_user.name%>event user index </h1>
 
 <table>
     
@@ -7,19 +7,18 @@
         <td><b><%= "Name" %></b> </td>
         <td><b><%= "Date" %></b></td>
         <td><b><%= "Time" %></b></td>
-        <td><b><%= "DJ Name" %></b></td>
+        <td><b><%= "Start Time" %></b></td>
+        
     <% @events.each do |event| %>
     <tr>
-       
         <td><%= event.name%> </td>
         <td><%= event.date.strftime("%b %d, %Y") %></td>
         <td><%= event.time.strftime("%I:%Mp") %></td>
-        <td><%= event.talents.name%> </td>
-        
-       
     </tr>
 
     <% end %>
+
+
 </table>
 
 </div>

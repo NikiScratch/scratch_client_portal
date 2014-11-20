@@ -1,26 +1,26 @@
 <div class="white-pink">
-<h1>Events held for <%=current_user.name%> (eventvenuepast)</h1>
+<h1>Events held for <%=current_user.name%> eventuser show</h1>
 <table>
     
     <tr>
+
         <% if @pastevents.size==0 %>
 
             <em>No Events found</em>
 
         <% else %>
-       
             
             <td><b><%= "Name" %></b></td>
             <td><b><%= "Date" %></b></td>
             <td><b><%= "Time" %></b></td>
     </tr>
 
-            <% @pastevents.group(:name).each do |e| %> 
+            <% @pastevents.each do |pe| %> 
             <tr> 
 
-                <td><%= e.name %> </td> 
-                <td><%= e.date.strftime("%b %d, %Y") %></td> 
-                <td><%= e.time.strftime("%I:%Mp") %></td>  
+                <td><%= pe.name %> </td> 
+                <td><%= pe.date.strftime("%b %d, %Y") %></td> 
+                <td><%= pe.time.strftime("%I:%Mp") %></td>  
             </tr> 
         <% end %>
              

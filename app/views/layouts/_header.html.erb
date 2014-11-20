@@ -2,21 +2,35 @@
 
 	<div class="navbar-inner">
 		<div class="container">
+<% if current_user %>
+  <!-- #converts type to a symbol, more optimal then checking string -->
 
-			<% if current_user %>
-				<p><%= link_to "Log out", logout_path %></p>
-                    <% if current_page?(controller: 'events_user', action: 'index') %>
+			<% if current_user.type.downcase.to_sym == :client %>
 
-                        <%= link_to "Venues", venues_path%>
-                    <%elsif current_user.type=="Talent"%>
-                        <p><%= link_to "Past Events", events_path%>
-                    <%else%>
-                        <p><%= link_to "Past Events", events_path%>
-                    <% end %>
+              <% if params[:controller] == 'eventvenue' && params[:action] == 'show' %>
+                <%= link_to "Past Events", past_clientevents_path%>
+                 <p><%= link_to "Log out", logout_path %></p>
+              <% else %>
+              <%= link_to "Upcoming Events", venues_path%>
+                <p><%= link_to "Log out", logout_path %></p>
+              <% end %>
+
+      <%elsif current_user.type.downcase.to_sym == :talent %>
+              <p><%= link_to "Log out", logout_path %></p>
+
+              <% if current_page?(controller: 'events_user', action: 'show') %>
+                 <%= link_to "Upcoming Events", events_path%>
+              <%elsif current_page?(controller: 'events_user', action: 'index')%>
+                  <p><%= link_to "Past Events", past_events_path%>
+              <% end %>
+
+
 			<% else %>
+
                 <%= link_to "Sign in", root_path %>
-            <% end %>
             
+            <% end %>
+      <% end %>
 		</div>
     </div>
 </header>
