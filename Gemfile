@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'nifty-generators'
 gem 'omniauth'
+gem 'simple_form'
 
 # will paginate
 gem 'will_paginate'
@@ -44,7 +45,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-identity'
 gem "omniauth-google-oauth2"
 
-gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-sass', '~> 3.3.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

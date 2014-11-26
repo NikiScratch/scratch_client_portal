@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
     has_many :events_users, dependent: :destroy
     has_many :users, through: :events_users
-    has_many :events_venues, dependent: :destroy
-    has_many :venues, through: :events_venues
+    #has_many :events_venues, dependent: :destroy
+    belongs_to :venue
+    #has_many :venues, through: :events_venues
 
     has_many :events_talents, class_name: "EventsTalent"
     has_many :talents, through: :events_talents, source: :user

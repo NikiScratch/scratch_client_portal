@@ -9,11 +9,12 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
+
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
@@ -99,14 +100,22 @@ table {
 
 th {
     height: 50px;
+
 }
+/*li {
+ list-style-type: none;
+ width: 100px;
+ overflow-x: auto;  change to hidden if that's what you want 
+ text-align: right;
+ margin-right: 10px;
+}*/
 
 
 /* ###### White / Pink #########*/
 .white-pink {
     margin-left:auto;
     margin-right:auto;
-    width: 100%;
+    width: 150%;
    /* max-width: 600px;*/
     background: #FFF;
     padding: 30px 30px 10px 30px;
@@ -174,7 +183,7 @@ th {
 .white-pink textarea{
     height:100px;
     padding: 5px 0px 0px 10px;
-    width: 70%;
+    width: 80%;
 }
 .white-pink .button {
     -moz-box-shadow:inset 0px 1px 0px 0px #fbafe3;
@@ -278,7 +287,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  color: gray;
 }
 
 p {

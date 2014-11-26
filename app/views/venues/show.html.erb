@@ -1,0 +1,43 @@
+<div class="white-pink">
+<h1>Events held in <%=@venue.name %></h1>
+
+<table>
+    <tr>
+        <% if @events.size==0 %>
+        <em>No Events found</em>
+        <%else%>
+            <td><b><%= "Name" %></b></td>
+            <td><b><%= "Date" %></b></td>
+            <td><b><%= "Event Time" %></b></td>
+            <td><b><%= "DJ Name" %></b></td>
+            <td><b><%= "DJ Start Time" %></b></td>
+            <td><b><%= "DJ End Time" %></b></td>
+            <td><b><%= "DJ Cell" %></b></td>
+    </tr>
+        <% @events.group(:name).each do |e| %>
+        <tr>
+            <td><%= e.event.name %></td> 
+            <td><%= e.event.date.strftime("%b %d, %Y") %></td>
+            <td><%= e.event.time.strftime("%I:%Mp") %></td><tr></tr>
+
+            <td>       
+                <% @events_in_eventtalent.each do |t| %>
+
+                <tr><td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td><%= link_to t.user.name, t.user.biolink %></td>
+                    <td><%= t.start %></td>
+                    <td><%= t.end %></td>
+                    <td><%= t.user.name %></td>
+                </tr>
+                <% end %>
+            </td>
+
+            <% end %>
+        
+        </tr> 
+        <% end %>
+</table>
+</div>

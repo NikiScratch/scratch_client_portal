@@ -1,6 +1,7 @@
 class Venue < ActiveRecord::Base
-    has_many :events, through: :events_venues
-    has_many :events_venues, dependent: :destroy
+    has_many :events
+    #has_many :events, through: :events_venues
+    #has_many :events_venues, dependent: :destroy
     has_many :users, through: :events
     has_many :events_users, through: :events
     

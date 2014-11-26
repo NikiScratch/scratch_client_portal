@@ -5,32 +5,50 @@
 <% if current_user %>
   <!-- #converts type to a symbol, more optimal then checking string -->
 
-			<% if current_user.type.downcase.to_sym == :client %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Scratch Client Portal</a>
+    <ul class="nav">
+      <li class="active">
+      
 
-              <% if params[:controller] == 'eventvenue' && params[:action] == 'show' %>
-                <%= link_to "Past Events", past_clientevents_path%>
-                 <p><%= link_to "Log out", logout_path %></p>
+      <% if current_user.type.downcase.to_sym == :client %>
+
+              <% if params[:controller] == 'venues' && params[:action] == 'show' %>
+                <li><%= link_to "Past Events", past_clientevents_path%></li>
+                <li><%= link_to "Log out", logout_path %></li>
+
+              <%elsif params[:controller] =='venues'&& params[:action] == 'index'%>
+
+                <li><%= link_to "Log out", logout_path %></li>
+
               <% else %>
-              <%= link_to "Upcoming Events", venues_path%>
-                <p><%= link_to "Log out", logout_path %></p>
+              <li><%= link_to "Upcoming Events", venues_path%></li>
+                <li><%= link_to "Log out", logout_path %></li>
+
               <% end %>
 
       <%elsif current_user.type.downcase.to_sym == :talent %>
-              <p><%= link_to "Log out", logout_path %></p>
 
               <% if current_page?(controller: 'events_user', action: 'show') %>
-                 <%= link_to "Upcoming Events", events_path%>
+                 <li><%= link_to "Upcoming Events", events_path%></li>
+                 <li> <%= link_to "Log out", logout_path %></li>
               <%elsif current_page?(controller: 'events_user', action: 'index')%>
-                  <p><%= link_to "Past Events", past_events_path%>
+                <li><%= link_to "Past Events", past_events_path%></li>
+                <li><%= link_to "Log out", logout_path %></li>
               <% end %>
 
-
-			<% else %>
-
-                <%= link_to "Sign in", root_path %>
+      <% else %>
+                
+              <%= link_to "Sign in", root_path %>
             
-            <% end %>
+              <% end %>
       <% end %>
+
+    </ul>
+  </div>
+</div>
+			
 		</div>
-    </div>
+  </div>
 </header>
