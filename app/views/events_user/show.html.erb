@@ -1,9 +1,8 @@
 <div class="white-pink">
 <h1>Past events held for <%=current_user.name%> </h1>
-<table>
+<table class="table table-hover">
     
     <tr>
-
         <% if @pastevents.size==0 %>
 
             <em>No Events found</em>
@@ -13,6 +12,7 @@
             <td><b><%= "Name" %></b></td>
             <td><b><%= "Date" %></b></td>
             <td><b><%= "Time" %></b></td>
+            <td><b><%= "Location" %></b></td>
     </tr>
 
             <% @pastevents.each do |pe| %> 
@@ -20,7 +20,8 @@
 
                 <td><%= pe.name %> </td> 
                 <td><%= pe.date.strftime("%b %d, %Y") %></td> 
-                <td><%= pe.time.strftime("%I:%Mp") %></td>  
+                <td><%= pe.time.strftime("%I:%Mp") %></td> 
+                <td><%= pe.venue.address %><%= pe.venue.city %><%= pe.venue.state %></td> 
             </tr> 
         <% end %>
              

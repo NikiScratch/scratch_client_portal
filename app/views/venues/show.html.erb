@@ -15,10 +15,10 @@
             <td><b><%= "DJ Cell" %></b></td>
     </tr>
         <% @events.group(:name).each do |e| %>
-        <tr>
+    <tr>
             <td><%= e.event.name %></td> 
             <td><%= e.event.date.strftime("%b %d, %Y") %></td>
-            <td><%= e.event.time.strftime("%I:%Mp") %></td><tr></tr>
+            <td><%= e.event.time.strftime("%I:%Mp") %></td>
 
             <td>       
                 <% @events_in_eventtalent.each do |t| %>
@@ -30,14 +30,14 @@
                     <td><%= link_to t.user.name, t.user.biolink %></td>
                     <td><%= t.start %></td>
                     <td><%= t.end %></td>
-                    <td><%= t.user.name %></td>
+                  <td><%= t.user.name %></td>
                 </tr>
                 <% end %>
             </td>
 
             <% end %>
         
-        </tr> 
+    </tr> 
         <% end %>
 </table>
 </div>

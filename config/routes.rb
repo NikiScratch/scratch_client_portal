@@ -1,7 +1,7 @@
 ScratchClientPortal::Application.routes.draw do
 
-  get 'eventvenue/index'
-  get 'eventvenue/show'
+  # get 'eventvenue/index'
+  # get 'eventvenue/show'
 
 root to: 'sessions#new'
   match '/venues', to: 'venues#index', via: [:get, :post]

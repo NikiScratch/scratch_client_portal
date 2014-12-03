@@ -16,7 +16,7 @@
 @import "bootstrap";
 
 body {
-  background-color: #4B7399;
+  background-color: #5C97BF;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -443,5 +443,3 @@ input {
     }
   }
 }
-
-

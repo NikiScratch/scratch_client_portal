@@ -13,7 +13,6 @@ has_many :venues, through: :events
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-  end
-    
+    end
   end
 end
